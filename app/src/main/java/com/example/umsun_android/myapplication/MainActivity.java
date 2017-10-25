@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv1;
     private TextView tv2;
     private Handler mHandler;
-    private int count=0;
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void goToHome(int value){
+    private void goToHome(int value) {
         if (value == 20000) {
             final Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -43,19 +43,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void setCount(){
-        for(int i=0 ; i < 34789473; i++){
-            Log.e("MainActivity", "=============== count : " + i);
-            if(i == 34789472){
+    private void setCount() {
+        for (int i = 0; i < 34789473; i++) {
+            if (i == 34789472)
                 go();
-                Log.e("MainActivity", "============== " + i);
-            }
         }
     }
 
-    synchronized private void go(){
+    synchronized private void go() {
         count++;
-        if(count > 2) {
+        if (count > 2) {
             Intent intent = new Intent(MainActivity.this, Main2Activity.class);
             startActivity(intent);
         }
@@ -66,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         tv2 = (TextView) findViewById(R.id.textview2);
     }
 
-    private void setTextAnim(int start, int end, int duration, final TextView tv){
+    private void setTextAnim(int start, int end, int duration, final TextView tv) {
         ValueAnimator animator = ValueAnimator.ofInt(start, end);
         animator.setDuration(duration);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
